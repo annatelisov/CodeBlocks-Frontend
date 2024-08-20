@@ -5,8 +5,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 
 //Use this http://localhost:5000 for localhost
-const socket = io('https://backendcodeblocksapp-02d7e23a5120.herokuapp.com', { transports: ['websocket'] });
-
+//const socket = io('https://backendcodeblocksapp-02d7e23a5120.herokuapp.com');
 
 function CodeBlockPage() {
   const [title, setTitle] = useState('');
@@ -16,10 +15,14 @@ function CodeBlockPage() {
   const [students, setStudents] = useState(0);
   const { id } = useParams();
   const navigate = useNavigate();
-
+  const socket = io('http://localhost:5000');
   useEffect(() => {
+    //Define this again because this didn't work in other way even when return socket
+    const socket = io('http://localhost:5000');
+
     //Fetch data from the server and db, localhost:5000 for localhost
-    axios.get(`https://backendcodeblocksapp-02d7e23a5120.herokuapp.com/api/codeblocks/${id}`)
+    //axios.get(`https://backendcodeblocksapp-02d7e23a5120.herokuapp.com/api/codeblocks/${id}`)
+    axios.get(`http://localhost:5000/api/codeblocks/${id}`)
       .then(response => {
         setTitle(response.data.title);
         setCode(response.data.code);
@@ -33,6 +36,7 @@ function CodeBlockPage() {
 
     //Listen for role assignment and set true if this is the mentor or false if this is a student
     socket.on('roleAssignment', (role) => {
+      console.log('Assigned role:', role);
       setIsMentor(role === 'mentor');
     });
 
@@ -46,11 +50,16 @@ function CodeBlockPage() {
       setCode(newCode);
     });
 
+    // Room closure
+    socket.on('roomClosed', () => {
+      navigate('/');
+    });
+
     return () => {
       socket.emit('leaveBlock', id);
       socket.disconnect();
     };
-  }, [id]);
+  }, [id, navigate]);
   
 
   //Updating code changes in the textarea
@@ -66,6 +75,7 @@ function CodeBlockPage() {
   //Students out of the room if the mentor leaving
   const handleMentorLeave = () => {
     if (isMentor) {
+      socket.emit('leaveBlock', id);
       navigate('/');
     }
   };
@@ -87,5 +97,6 @@ function CodeBlockPage() {
     </div>
   );
 }
+
 
 export default CodeBlockPage;
