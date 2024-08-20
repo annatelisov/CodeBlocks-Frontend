@@ -4,9 +4,6 @@ import axios from 'axios';
 import { useNavigate, useParams } from 'react-router-dom';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 
-//Use this http://localhost:5000 for localhost
-//const socket = io('https://backendcodeblocksapp-02d7e23a5120.herokuapp.com');
-
 function CodeBlockPage() {
   const [title, setTitle] = useState('');
   const [code, setCode] = useState('');
@@ -15,14 +12,13 @@ function CodeBlockPage() {
   const [students, setStudents] = useState(0);
   const { id } = useParams();
   const navigate = useNavigate();
-  const socket = io('http://localhost:5000');
+  const socket = io('https://backendcodeblocksapp-02d7e23a5120.herokuapp.com');
   useEffect(() => {
     //Define this again because this didn't work in other way even when return socket
-    const socket = io('http://localhost:5000');
+    const socket = io('https://backendcodeblocksapp-02d7e23a5120.herokuapp.com');
 
     //Fetch data from the server and db, localhost:5000 for localhost
-    //axios.get(`https://backendcodeblocksapp-02d7e23a5120.herokuapp.com/api/codeblocks/${id}`)
-    axios.get(`http://localhost:5000/api/codeblocks/${id}`)
+    axios.get(`https://backendcodeblocksapp-02d7e23a5120.herokuapp.com/api/codeblocks/${id}`)
       .then(response => {
         setTitle(response.data.title);
         setCode(response.data.code);
