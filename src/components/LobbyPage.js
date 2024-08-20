@@ -7,7 +7,8 @@ function LobbyPage() {
 
   //Get the data from db
   useEffect(() => {
-    axios.get('http://localhost:5000/api/codeblocks')
+    //Use this http://localhost:5000 if run in localhost
+    axios.get('https://backendcodeblocksapp-02d7e23a5120.herokuapp.com/api/codeblocks') 
       .then(response => {
         console.log('Data fetched:', response.data); 
         setCodeblocks(response.data);

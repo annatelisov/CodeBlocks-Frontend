@@ -4,7 +4,8 @@ import axios from 'axios';
 import { useNavigate, useParams } from 'react-router-dom';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 
-const socket = io('http://localhost:5000', { transports: ['websocket'] });
+//Use this http://localhost:5000 if run in localhost
+const socket = io('https://backendcodeblocksapp-02d7e23a5120.herokuapp.com', { transports: ['websocket'] });
 
 
 function CodeBlockPage() {
@@ -18,7 +19,7 @@ function CodeBlockPage() {
 
   useEffect(() => {
     //Fetch data from the server and db
-    axios.get(`http://localhost:5000/api/codeblocks/${id}`)
+    axios.get(`https://backendcodeblocksapp-02d7e23a5120.herokuapp.com/api/codeblocks/${id}`)
       .then(response => {
         setTitle(response.data.title);
         setCode(response.data.code);
