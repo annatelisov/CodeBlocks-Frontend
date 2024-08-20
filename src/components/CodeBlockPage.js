@@ -4,7 +4,7 @@ import axios from 'axios';
 import { useNavigate, useParams } from 'react-router-dom';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 
-//Use this http://localhost:5000 if run in localhost
+//Use this http://localhost:5000 for localhost
 const socket = io('https://backendcodeblocksapp-02d7e23a5120.herokuapp.com', { transports: ['websocket'] });
 
 
@@ -18,7 +18,7 @@ function CodeBlockPage() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    //Fetch data from the server and db
+    //Fetch data from the server and db, localhost:5000 for localhost
     axios.get(`https://backendcodeblocksapp-02d7e23a5120.herokuapp.com/api/codeblocks/${id}`)
       .then(response => {
         setTitle(response.data.title);
@@ -31,10 +31,8 @@ function CodeBlockPage() {
     socket.emit('joinBlock', id);
     
 
-    //Listen for role assignment
+    //Listen for role assignment and set true if this is the mentor or false if this is a student
     socket.on('roleAssignment', (role) => {
-      console.log(role);
-      console.log("hi");
       setIsMentor(role === 'mentor');
     });
 
