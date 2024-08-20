@@ -1,0 +1,46 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f6f8fc;
+  color: rgb(15, 14, 14);
+  text-align: center;
+  margin: 0;
+}
+
+textarea {
+  width: 80%;
+  height: 200px;
+  margin-top: 20px;
+}
+
+h1 {
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 10px;
+}
+
+li {
+  margin: 10px 0;
+}
+
+a {
+  color: #250fcb;
+  text-decoration: none;
+  font-size: 1.5em;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 1em;
+  cursor: pointer;
+}
+
