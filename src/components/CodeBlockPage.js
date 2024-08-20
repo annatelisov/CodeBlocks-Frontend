@@ -12,7 +12,7 @@ function CodeBlockPage() {
   const [title, setTitle] = useState('');
   const [code, setCode] = useState('');
   const [solution, setSolution] = useState('');
-  const [isMentor, setIsMentor] = useState(true);
+  const [isMentor, setIsMentor] = useState();
   const [students, setStudents] = useState(0);
   const { id } = useParams();
   const navigate = useNavigate();
