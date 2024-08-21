@@ -28,7 +28,7 @@ This is the frontend for the Code Blocks App, an online coding web application d
 
 ### Runing app localy
 
-- npm install
+- npm start
 - Runing localy at http://localhost:3000
 
 ### Deployment 
