@@ -34,7 +34,7 @@ This is the frontend for the Code Blocks App, an online coding web application d
 ### Deployment 
 
 - Deploy at Vercel and Railway platform.
-- App's Frontend url: https://code-blocks-frontend-kwibmoa71-anna-eidas-projects.vercel.app/
+- App's Frontend url: https://code-blocks-frontend-nine.vercel.app
 - App's Backend url: https://web-production-abd4.up.railway.app/
 
 #  Thanks for interesting my app! #
