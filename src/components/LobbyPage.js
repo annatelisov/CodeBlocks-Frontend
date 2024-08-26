@@ -8,7 +8,7 @@ function LobbyPage() {
   //Get the data from db
   useEffect(() => {
     //Use this http://localhost:5000 for localhost
-    axios.get('https://web-production-abd4.up.railway.app//api/codeblocks')
+    axios.get('https://web-production-abd4.up.railway.app/api/codeblocks')
       .then(response => {
         console.log('Data fetched:', response.data); 
         setCodeblocks(response.data);
