@@ -18,7 +18,7 @@ This is the frontend for the Code Blocks App, an online coding web application d
 - **Socket.IO**: Real-time communication between users.
 - **Axios**: Promise-based HTTP client for making requests to the backend API.
 - **React Router**: For handling navigation between pages.
-- **Heroku**: Deployment platform.
+- **Vercel**: Deployment platform.
 
 ## Getting Started
 
@@ -33,8 +33,8 @@ This is the frontend for the Code Blocks App, an online coding web application d
 
 ### Deployment 
 
-- Deploy at Heroku platform.
-- App's Frontend url: https://frontendcodeblocksapp-d21f3e724ed4.herokuapp.com/
-- App's Backend url: https://backendcodeblocksapp-02d7e23a5120.herokuapp.com/
+- Deploy at Vercel and Railway platform.
+- App's Frontend url: https://code-blocks-frontend-kwibmoa71-anna-eidas-projects.vercel.app/
+- App's Backend url: https://web-production-abd4.up.railway.app/
 
 #  Thanks for interesting my app! #
