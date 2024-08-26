@@ -12,13 +12,13 @@ function CodeBlockPage() {
   const [students, setStudents] = useState(0);
   const { id } = useParams();
   const navigate = useNavigate();
-  const socket = io('https://backendcodeblocksapp-02d7e23a5120.herokuapp.com');
+  const socket = io('https://web-production-abd4.up.railway.app/');
   useEffect(() => {
     //Define this again because this didn't work in other way even when return socket
-    const socket = io('https://backendcodeblocksapp-02d7e23a5120.herokuapp.com');
+    const socket = io('https://web-production-abd4.up.railway.app/');
 
     //Fetch data from the server and db, localhost:5000 for localhost
-    axios.get(`https://backendcodeblocksapp-02d7e23a5120.herokuapp.com/api/codeblocks/${id}`)
+    axios.get(`https://web-production-abd4.up.railway.app/api/codeblocks/${id}`)
       .then(response => {
         setTitle(response.data.title);
         setCode(response.data.code);
